@@ -1,0 +1,21 @@
+<!Doctype html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Time and Date formatting</title>
+</head>
+
+<body>
+    <p id="Date"></p>
+   
+</body>
+
+</html>
+<script>
+
+   
+    var TD = new Date();
+    var month = TD.getMonth() + 1;
+    document.getElementById("Date").innerHTML = month + "/" + TD.getDate() + "/" + TD.getFullYear();
+    
+</script> 
