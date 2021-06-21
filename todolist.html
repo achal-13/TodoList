@@ -1,0 +1,52 @@
+<!Doctype html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Todo List</title>
+</head>
+
+<body>
+
+    <div id="enterValues">
+        <h2>My To Do List</h2>
+
+        <form>
+            <input type="text" name="iteminput" id="iteminput" placeholder="Enter a Todo Item">
+        </form>
+
+        <button onclick="additem()">Add</button>
+    </div>
+
+
+    <div class="todoitemsdiv">
+
+        <ul class="todoitems">
+            <li id="todoitem"></li>
+
+        </ul>
+
+    </div>
+
+
+
+</body>
+
+</html>
+<script>
+    function additem() {
+
+        var input = document.getElementById("iteminput").value
+
+        if (document.getElementById("todoitem").innerHTML=="") {
+            var input = document.getElementById("iteminput").value
+            document.getElementById("todoitem").innerHTML = input
+        }
+
+        else{
+
+        }
+
+
+
+    }
+</script>
