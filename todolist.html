@@ -19,17 +19,21 @@
 
 
     <script>
+       
         //Delete an item from items list
         var ul = document.querySelector("ul")
         for (var i = 0; i < ul.childElementCount; i++) {
+     
             ul.children[i].children[0].onclick = function () {
-                alert("deleted");
+               
+                ul.children[i].children[0].parentElement.style.display = "none";
             }
         }
         //Adding item to the items list
         var s = 0
 
         function additem() {
+        
             s = s + 1
             var input = document.getElementById("iteminput").value
             if (document.getElementById("iteminput").value == "") {
@@ -38,22 +42,45 @@
                 var li = document.createElement("li")
                 li.innerHTML = input
                 li.id = "todoitem" + s
+    
                 document.getElementById("todoitems").appendChild(li)
             }
             document.getElementById("iteminput").value = "";
-
+            
+     
             var btn = document.createElement("BUTTON");
             var txt = document.createTextNode("\u00D7");
             btn.className = "close";
             btn.appendChild(txt);
             li.appendChild(btn);
 
-            var ul = document.querySelector("ul")
-            for (var i = 0; i < ul.childElementCount; i++) {
-                ul.children[i].children[0].onclick = function () {
-                    alert("deleted");
-                }
+            document.getElementById(li.id).children[0].onclick = function(){
+                document.getElementById(li.id).children[0].parentElement.remove()
             }
+
+            
+            var ul = document.querySelector("ul")
+            // for (var i = 0; i <= s+1; i++) { 
+            //     console.log(i)
+
+            //     if(i == s-1)
+            //     {
+            //     var chil = ul.children[i]
+            //     console.log(chil)
+            //     console.log(i)
+                               
+            //     var chilsss = ul.children[i].children[0].parentElement
+            //     console.log(chilsss)
+                 
+            //     ul.children[i].children[0].onclick = function () { 
+            //        console.log(i)
+            //        console.log(ul.children[i].children[0].parentElement)
+                     
+            //        ul.children[i].children[0].parentElement.remove()
+            //        console.log(ul.children[i].children[0].parentElement)
+            //        console.log(i)
+            //     }
+            // }}
         }
     </script>
 </body>
