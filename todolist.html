@@ -3,6 +3,68 @@
 <head>
     <meta charset="utf-8" />
     <title>Todo List</title>
+    <style>
+        body {
+            border: 1.5px solid;
+        }
+
+        * {
+            box-sizing: border-box;
+            padding: 7px;
+        }
+
+        #enterValues {
+            background-color: mediumpurple;
+        }
+
+        h2 {
+            font-size: 55px;
+            text-align: center;
+        }
+
+        #addbutton {
+            float: right;
+            margin-top: -40px;
+            width: 25%;
+        }
+
+        #iteminput {
+            width: 75%;
+        }
+
+        li {
+            border: 1px solid;
+            margin: 10px;
+            background: #f4f2f8;
+            font-size: 23px;
+        }
+
+        .close {
+
+            float: right;
+            padding: initial;
+            width: 15%;
+            font-size: 19px;
+            border: 0 solid;
+            background-color: rgb(228, 228, 228);
+        }
+
+        .close:hover{
+            background: rgb(112, 109, 109);
+        }
+
+        ul li:nth-child(odd) {
+            background: #e9deff;
+        }
+
+        ul li:hover {
+            background: rgb(218, 216, 247);
+        }
+
+        .todoitemsdiv {
+            background: rebeccapurple;
+        }
+    </style>
 </head>
 
 <body>
@@ -11,7 +73,7 @@
         <form>
             <input type="text" name="iteminput" id="iteminput" placeholder="Enter a Todo Item">
         </form>
-        <button onclick="additem()">Add</button>
+        <button id="addbutton" onclick="additem()">Add</button>
     </div>
     <div class="todoitemsdiv">
         <ul id="todoitems"></ul>
