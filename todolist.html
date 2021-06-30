@@ -29,7 +29,9 @@
             } else {
                 var li = document.createElement("li")
                 li.innerHTML = input
+                li.className = "uncheck"
                 li.id = "todoitem" + s
+
 
                 document.getElementById("todoitems").appendChild(li)
             }
@@ -39,12 +41,23 @@
             var txt = document.createTextNode("\u00D7");
             btn.className = "close";
             btn.appendChild(txt);
-            li.appendChild(btn);
+            li.append(btn);
 
             //To delete an item 
             document.getElementById(li.id).children[0].onclick = function () {
                 document.getElementById(li.id).children[0].parentElement.remove()
             }
+            //To Strike through the item
+            document.getElementById(li.id).addEventListener('click', function (event) {
+                if (document.getElementById(li.id).className == "uncheck") {
+                    document.getElementById(li.id).style = "text-decoration: line-through;"
+                    document.getElementById(li.id).className = "check"
+                } else {
+                    document.getElementById(li.id).style = "text-decoration: none;"
+                    document.getElementById(li.id).className = "uncheck"
+                }
+
+            }, false)
         }
     </script>
 </body>
