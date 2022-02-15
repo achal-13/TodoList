@@ -1,0 +1,127 @@
+<!Doctype html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Todo List</title>
+    <style>
+        body {
+            border: 1.5px solid;
+        }
+
+        * {
+            box-sizing: border-box;
+            padding: 7px;
+        }
+
+        #enterValues {
+            background-color: mediumpurple;
+        }
+
+        h2 {
+            font-size: 55px;
+            text-align: center;
+        }
+
+        #addbutton {
+            float: right;
+            margin-top: -40px;
+            width: 25%;
+        }
+
+        #iteminput {
+            width: 75%;
+        }
+
+        li {
+            border: 1px solid;
+            margin: 10px;
+            background: #f4f2f8;
+            font-size: 23px;
+        }
+
+        .close {
+
+            float: right;
+            padding: initial;
+            width: 15%;
+            font-size: 19px;
+            border: 0 solid;
+            background-color: rgb(228, 228, 228);
+        }
+
+        .close:hover{
+            background: rgb(112, 109, 109);
+        }
+
+        ul li:nth-child(odd) {
+            background: #e9deff;
+        }
+
+        ul li:hover {
+            background: rgb(218, 216, 247);
+        }
+
+        .todoitemsdiv {
+            background: rebeccapurple;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="enterValues">
+        <h2>My To Do List</h2>
+        <form>
+            <input type="text" name="iteminput" id="iteminput" placeholder="Enter a Todo Item">
+        </form>
+        <button id="addbutton" onclick="additem()">Add</button>
+    </div>
+    <div class="todoitemsdiv">
+        <ul id="todoitems"></ul>
+    </div>
+
+    <script>
+        //Adding item to the items list
+        var s = 0
+
+        function additem() {
+            s = s + 1
+            var input = document.getElementById("iteminput").value
+            if (document.getElementById("iteminput").value == "") {
+                alert("You must write something!");
+            } else {
+                var li = document.createElement("li")
+                li.innerHTML = input
+                li.className = "uncheck"
+                li.id = "todoitem" + s
+
+
+                document.getElementById("todoitems").appendChild(li)
+            }
+            document.getElementById("iteminput").value = "";
+
+            var btn = document.createElement("BUTTON");
+            var txt = document.createTextNode("\u00D7");
+            btn.className = "close";
+            btn.appendChild(txt);
+            li.append(btn);
+
+            //To delete an item 
+            document.getElementById(li.id).children[0].onclick = function () {
+                document.getElementById(li.id).children[0].parentElement.remove()
+            }
+            //To Strike through the item
+            document.getElementById(li.id).addEventListener('click', function (event) {
+                if (document.getElementById(li.id).className == "uncheck") {
+                    document.getElementById(li.id).style = "text-decoration: line-through;"
+                    document.getElementById(li.id).className = "check"
+                } else {
+                    document.getElementById(li.id).style = "text-decoration: none;"
+                    document.getElementById(li.id).className = "uncheck"
+                }
+
+            }, false)
+        }
+    </script>
+</body>
+
+</html>
